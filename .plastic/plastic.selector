@@ -1,0 +1,4 @@
+repository "hamzziRun@kkalkkaltest@cloud"
+  path "/"
+    br "/main"
+    co "/main"
