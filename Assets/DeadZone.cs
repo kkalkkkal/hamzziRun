@@ -12,6 +12,7 @@ public class DeadZone : MonoBehaviour {
             if (collision.gameObject.tag.CompareTo("Player") == 0)
             {
                 DataManager.Instance.PlayerDie = true;
+                Time.timeScale = 0;
             }
         }
     }
