@@ -13,11 +13,13 @@ public class MapMove : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+     private void Update()
     {
-        //맵 스피드만큼 -x 축으로 이동
-        transform.Translate(-mapSpeed * Time.deltaTime, 0, 0);
-        
+        // 죽으면 끝
+        if (!DataManager.Instance.PlayerDie)
+        {
+            //맵 스피드만큼 -x 축으로 이동
+            transform.Translate(-mapSpeed * Time.deltaTime, 0, 0);
+        }
     }
 }

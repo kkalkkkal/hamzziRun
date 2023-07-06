@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     // PausePanel GameObject 연동용 변수 추가
     public GameObject PausePanel;
 
+
     private void Update()
     {
         //점수 띄우기
