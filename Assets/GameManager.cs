@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
             if (DataManager.Instance.playTimeCurrent < 0)
             {
                 DataManager.Instance.PlayerDie = true;
+                Time.timeScale = 0;
                 //배경 끄기
             }
 
