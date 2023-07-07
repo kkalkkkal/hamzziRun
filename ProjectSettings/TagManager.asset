@@ -7,14 +7,15 @@ TagManager:
   - Land
   - Block
   - Coin
+  - UI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Land
   - 
   - 
   - 
@@ -43,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2217835905
+    locked: 0
+  - name: UI
+    uniqueID: 200299179
+    locked: 0
+  - name: BG
+    uniqueID: 4104673643
+    locked: 0
+  - name: Land
+    uniqueID: 131527323
     locked: 0
