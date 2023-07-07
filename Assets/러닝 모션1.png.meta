@@ -120,10 +120,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_0"
       rect:
         serializedVersion: 2
-        x: 9
-        y: 990
-        width: 483
-        height: 483
+        x: 11
+        y: 993
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_1"
       rect:
         serializedVersion: 2
-        x: 499
-        y: 990
-        width: 483
-        height: 483
+        x: 502
+        y: 993
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_2"
       rect:
         serializedVersion: 2
-        x: 991
-        y: 990
-        width: 483
-        height: 483
+        x: 993
+        y: 993
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_3"
       rect:
         serializedVersion: 2
-        x: 1481
+        x: 1482
         y: 990
-        width: 483
-        height: 483
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_7"
       rect:
         serializedVersion: 2
-        x: 10
-        y: 499
-        width: 483
-        height: 483
+        x: 12
+        y: 502
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,9 +226,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 501
-        y: 499
-        width: 483
-        height: 483
+        y: 502
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_9"
       rect:
         serializedVersion: 2
-        x: 992
-        y: 500
-        width: 483
-        height: 483
+        x: 991
+        y: 503
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_10"
       rect:
         serializedVersion: 2
-        x: 1482
-        y: 500
-        width: 483
-        height: 483
+        x: 1483
+        y: 503
+        width: 478
+        height: 478
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_14"
       rect:
         serializedVersion: 2
-        x: 8
-        y: 8
-        width: 483
-        height: 483
+        x: 12
+        y: 12
+        width: 474
+        height: 474
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_15"
       rect:
         serializedVersion: 2
-        x: 501
-        y: 7
-        width: 483
-        height: 483
+        x: 504
+        y: 12
+        width: 474
+        height: 474
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +330,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_16"
       rect:
         serializedVersion: 2
-        x: 992
-        y: 7
-        width: 483
-        height: 483
+        x: 996
+        y: 12
+        width: 474
+        height: 474
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: "\uB7EC\uB2DD \uBAA8\uC1581_17"
       rect:
         serializedVersion: 2
-        x: 1482
-        y: 7
-        width: 483
-        height: 483
+        x: 1489
+        y: 12
+        width: 474
+        height: 474
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
