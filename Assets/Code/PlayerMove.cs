@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
 
     Rigidbody2D rigid;
     Animator animator;
+    SpriteRenderer spriteRenderer;
 
     int State = 0;
     
@@ -17,10 +18,12 @@ public class PlayerMove : MonoBehaviour
     int slideCount = 0;
 
     // Start is called before the first frame update
+    // gameObject는 스크립트를 할당한 오브젝트 자신을 의미함.
     void Start()
     {
         rigid = gameObject.GetComponent<Rigidbody2D> ();
         animator = gameObject.GetComponentInChildren<Animator> ();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 
         
     }
@@ -92,10 +95,31 @@ public class PlayerMove : MonoBehaviour
         }
 
             // 장애물에 부딪히면 시간 줄어들기
+            
         if (collision.gameObject.tag.CompareTo("Block") == 0)
         {
             DataManager.Instance.playTimeCurrent -= 2f;
+            OnDamaged(); // To do :  플레이어 무적 시간 부여
         }
+    }
+
+    // 피격 시 무적 부여
+    void OnDamaged(){
+        gameObject.layer = 11; // 레이어를 바꾸어서 무적 상태
+
+        // 색이 반투명하게 바뀜.
+        spriteRenderer.color = new Color(1,1,1,0.4f); //
+
+        Invoke("OffDamaged", 1); // 무적 시간 설정
+        
+    }
+
+    // 무적 상태 해제
+    void OffDamaged() {
+        gameObject.layer = 3; // Player 레이어로 원복
+
+        // 반투명 해제
+        spriteRenderer.color = new Color(1,1,1,1); 
     }
 }
 

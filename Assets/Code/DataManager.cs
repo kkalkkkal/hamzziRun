@@ -6,13 +6,21 @@ public class DataManager : MonoBehaviour {
 
     //DataManager에 아래의 변수 하나 추가
     public bool PlayerDie = false; //사망 판단
+    public bool GameClear = false;// 클리어 판단 (2023.08.03)
+    public bool skillOnOff = false; // 스킬 작동 여부
+    public bool QuizOnOff = false; // 퀴즈 패널 출현 여부 
 
     //게임 플레이 타임
-    public float playTimeCurrent = 10f;
-    public float playTimeMax = 10f;
+    public float playTimeCurrent = 100f;
+    public float playTimeMax = 100f;
+
+    // 누메릭 게이지 
+    public float numericPoint = 0f;
+    public float numericPointMax = 1000f;
 
     //새로운 변수 접근 방식 
     static DataManager instance;
+
     public static DataManager Instance
     {
         get
@@ -20,6 +28,7 @@ public class DataManager : MonoBehaviour {
             return instance;
         }
     }
+
     private void Awake()
     {
         if (instance == null)
