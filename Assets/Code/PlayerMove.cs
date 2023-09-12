@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float jump = 10f; //첫번째 점프 값
-    public float jump2 = 12f; //두번째 점프 값
+    public float jump = 13f; //첫번째 점프 값
+    public float jump2 = 17f; //두번째 점프 값
 
     Rigidbody2D rigid;
     Animator animator;
     SpriteRenderer spriteRenderer;
-
-    int State = 0;
-    
+    private Rigidbody2D rb2d;
 
     int jumpCount = 0;
     int slideCount = 0;
@@ -24,7 +22,7 @@ public class PlayerMove : MonoBehaviour
         rigid = gameObject.GetComponent<Rigidbody2D> ();
         animator = gameObject.GetComponentInChildren<Animator> ();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
-
+        rb2d = GetComponent<Rigidbody2D> ();
         
     }
 
@@ -47,6 +45,7 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetInteger("State", 2);
         }
+        //Debug.Log("jumpCount : " + jumpCount);
         
     }
 
@@ -65,6 +64,7 @@ public class PlayerMove : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, jump2, 0);
                 jumpCount += 1;  //점프횟수 추가.
             }
+            Sfx.SoundJump();
         }
     }
 
@@ -73,6 +73,9 @@ public class PlayerMove : MonoBehaviour
         if(!DataManager.Instance.PlayerDie)
         {
             slideCount = 1;
+            GetComponent<CircleCollider2D>().radius = 0.8f;
+            GetComponent<CircleCollider2D>().offset = new Vector2(-0.1552578f,-1.5f);
+            rb2d.gravityScale = 10; // 중력을 높여서 빠르게 떨어지기
         }
     }
 
@@ -80,6 +83,9 @@ public class PlayerMove : MonoBehaviour
         if(!DataManager.Instance.PlayerDie)
         {
             slideCount = 0;
+            GetComponent<CircleCollider2D>().radius = 1.424343f;
+            GetComponent<CircleCollider2D>().offset = new Vector2(-0.1552578f,-1.089355f);
+            rb2d.gravityScale = 3;
         }
     }
 
@@ -98,7 +104,7 @@ public class PlayerMove : MonoBehaviour
             
         if (collision.gameObject.tag.CompareTo("Block") == 0)
         {
-            DataManager.Instance.playTimeCurrent -= 2f;
+            DataManager.Instance.playTimeCurrent -= 450f;
             OnDamaged(); // To do :  플레이어 무적 시간 부여
         }
     }
@@ -120,6 +126,10 @@ public class PlayerMove : MonoBehaviour
 
         // 반투명 해제
         spriteRenderer.color = new Color(1,1,1,1); 
+    }
+
+    void PlyaerJump() {
+        gameObject.layer = 10; 
     }
 }
 

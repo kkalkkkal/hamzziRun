@@ -10,6 +10,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
+    // 맵 변수 
+    public GameObject[] Maps;
+
     public GameObject[] NumberImage;
     public Sprite[] Number;
 
@@ -41,9 +44,45 @@ public class GameManager : MonoBehaviour
     public Sprite star_1;
     public Sprite star_2;
 
+    float numericGaugeMess = 15f;
+    float HPGaugeMess = 20f;
+
+
+    // 처음 1번만 실행
+    private void Awake() {
+
+        for (int i  = 0 ; i < 5 ; i++)
+        {
+            Maps[i].SetActive(false);
+        }
+
+        Maps[DataManager.Instance.now_stage_num].SetActive(true);
+
+        // 각 스테이지 별로 스크립트 출력
+        if (DataManager.Instance.now_stage_num == 0) { // 튜토리얼
+            //Time.timeScale = 0; // 일시정지 하고 퀘스트 진행 : 시간을 정지시키면 타이핑 효과를 못쓰므로 다른 방식으로 해결
+            DataManager.Instance.QuestAction = 1;
+        } else {
+            DataManager.Instance.QuestAction = 0;
+        }
+
+    }
+
 
     private void Update()
     {
+        // 퀘스트 동작중 화면 정지
+        if (DataManager.Instance.QuestAction == 1){
+            DataManager.Instance.mapSpeed = 0f;
+            numericGaugeMess = 0f;
+            HPGaugeMess = 0f;
+        } else {
+            DataManager.Instance.mapSpeed = 8f;
+            numericGaugeMess = 20f;
+            HPGaugeMess = 20f;
+        }
+
+
         //점수 띄우기
         //100의 단위
         int temp = DataManager.Instance.score / 100;
@@ -60,20 +99,18 @@ public class GameManager : MonoBehaviour
         if (!DataManager.Instance.PlayerDie)
         {
             // HP 게이지
-            DataManager.Instance.playTimeCurrent -= 1 * Time.deltaTime; //1초에 1씩만 빼.
+            DataManager.Instance.playTimeCurrent -= HPGaugeMess * Time.deltaTime; //1초에 1%씩만 빼.
 
             // 누메릭 게이지 
-            DataManager.Instance.numericPoint += 10 * Time.deltaTime; // 초당 1%만 증가 (To do : 10을 1로 바꿀 것)
+            DataManager.Instance.numericPoint += numericGaugeMess * Time.deltaTime; // 초당 20%만 증가 (To do : 10을 1로 바꿀 것)
             BPFront.fillAmount = DataManager.Instance.numericPoint / DataManager.Instance.numericPointMax;
 
             // 게이지가 가득 채워지면 스킬 발동
             if(BPFront.fillAmount >= 1)
             {
                 Activate_Skill();
-
-                Invoke("UnActivate_Skill", 2); // Invoke는 n초 후 특정 함수를 발동시키는 함수
-
                 
+                Invoke("UnActivate_Skill", 5); // Invoke는 n초 후 특정 함수를 발동시키는 함수
             }
 
 
@@ -101,17 +138,24 @@ public class GameManager : MonoBehaviour
         if (DataManager.Instance.QuizOnOff == true)
         {
             QuizPanel.SetActive(true);
+            
+        } else {
+            
+            //QuizPanel.SetActive(false);
         }
 
         // 게임 클리어 되면 ClearPanel 켜기
         if (DataManager.Instance.GameClear == true) {
             Activate_Clear();
+            QuizPanel.SetActive(false);            
         }
     }
 
 
     public void Restart_Btn()
     {
+        Sfx.SoundBtn();
+
         Time.timeScale = 1;
         DataManager.Instance.score = 0;
         DataManager.Instance.PlayerDie = false;
@@ -119,6 +163,8 @@ public class GameManager : MonoBehaviour
         //DataManager.Instance.margnetTimeCurrent = 0;
 
         DataManager.Instance.numericPoint = 0f;
+        QuizPanel.SetActive(false);
+        DataManager.Instance.QuizOnOff = false;
 
         SceneManager.LoadScene("SampleScene");
     }
@@ -132,6 +178,13 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             PausePanel.SetActive(true);
         }
+        Sfx.SoundBtn();
+    }
+
+    public void QuitBtn(){
+        Time.timeScale = 1;
+        Sfx.SoundBtn();
+        SceneManager.LoadScene("AdventureStage");
     }
 
     // 스킬 발동 함수 
@@ -157,10 +210,39 @@ public class GameManager : MonoBehaviour
     {
         // To do : 클리어 창 띄우기 
         ClearPanel.SetActive(true);
+        Sfx.SoundClear();
         first_star.sprite = star_0;
         second_star.sprite = star_1;
         third_star.sprite = star_2;
-
+        if (PlayerPrefs.GetInt("LastStage") < DataManager.Instance.now_stage_num) {
+            PlayerPrefs.SetInt("LastStage", DataManager.Instance.now_stage_num);
+        }
+        DataManager.Instance.score = 0;
+        DataManager.Instance.QuestNum++;
+        //Debug.Log("userQuestnum : " + userquestnum);
 
     }
+
+    public void go_adventure()
+    {
+        Sfx.SoundBtn();
+
+        Time.timeScale = 1;
+
+        if (DataManager.Instance.tutorial == 1)
+        {
+            DataManager.Instance.QuestNum = 6;
+            DataManager.Instance.tutorial = 0;
+            SceneManager.LoadScene("MainMenu");
+        } else if (DataManager.Instance.now_stage_num == 5 && DataManager.Instance.QuestNum == 501) {
+            
+            SceneManager.LoadScene("MainMenu");
+        } else {
+            SceneManager.LoadScene("AdventureStage");
+        }
+        
+        
+    }
+
+
 }

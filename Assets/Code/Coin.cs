@@ -10,6 +10,9 @@ public class Coin : MonoBehaviour {
         if (collision.gameObject.tag.CompareTo("Player") == 0)
         {
             DataManager.Instance.score += 1;
+            
+            Sfx.SoundPlay(); // 코인 효과음 
+            
             //나 자신을 화면에서 꺼
             gameObject.SetActive(false);
 

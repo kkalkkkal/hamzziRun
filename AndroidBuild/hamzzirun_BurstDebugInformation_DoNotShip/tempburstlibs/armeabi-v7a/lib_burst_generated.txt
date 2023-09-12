@@ -131,6 +131,7 @@ Library: lib_burst_generated
 --root-assembly=E:\게임 제작\hamzziRun\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
 --root-assembly=E:\게임 제작\hamzziRun\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=E:\게임 제작\hamzziRun\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
+--root-assembly=E:\게임 제작\hamzziRun\Temp\StagingArea\Data\Managed\Assembly-CSharp-firstpass.dll
 --root-assembly=E:\게임 제작\hamzziRun\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Core.dll
 --root-assembly=E:\게임 제작\hamzziRun\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=E:\게임 제작\hamzziRun\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll

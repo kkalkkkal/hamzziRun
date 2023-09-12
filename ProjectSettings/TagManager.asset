@@ -16,11 +16,11 @@ TagManager:
   - Player
   - Water
   - UI
-  - Land
   - Obstacle
+  - Land
+  - tutorial
   - 
-  - 
-  - 
+  - PlayerJump
   - PlayerDamaged
   - 
   - 
@@ -58,9 +58,12 @@ TagManager:
   - name: BG
     uniqueID: 4104673643
     locked: 0
+  - name: Obstacle
+    uniqueID: 3506694689
+    locked: 0
   - name: Land
     uniqueID: 131527323
     locked: 0
-  - name: Obstacle
-    uniqueID: 3506694689
+  - name: tutorial
+    uniqueID: 1003161091
     locked: 0

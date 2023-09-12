@@ -18,6 +18,7 @@ public class ClearZone : MonoBehaviour
             {
                 DataManager.Instance.GameClear = true;
                 Time.timeScale = 0;
+
             }
         }
     }
